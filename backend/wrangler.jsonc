@@ -2,37 +2,12 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "backend",
   "main": "src/index.ts",
-  "compatibility_date": "2025-06-12"
+  "compatibility_date": "2025-06-12",
   // "compatibility_flags": [
   //   "nodejs_compat"
   // ],
-  // "vars": {
-  //   "MY_VAR": "my-variable"
-  // },
-  // "kv_namespaces": [
-  //   {
-  //     "binding": "MY_KV_NAMESPACE",
-  //     "id": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-  //   }
-  // ],
-  // "r2_buckets": [
-  //   {
-  //     "binding": "MY_BUCKET",
-  //     "bucket_name": "my-bucket"
-  //   }
-  // ],
-  // "d1_databases": [
-  //   {
-  //     "binding": "MY_DB",
-  //     "database_name": "my-database",
-  //     "database_id": ""
-  //   }
-  // ],
-  // "ai": {
-  //   "binding": "AI"
-  // },
-  // "observability": {
-  //   "enabled": true,
-  //   "head_sampling_rate": 1
-  // }
+  "vars": {
+    "DATABASE_URL":"prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiMDFKWFE1WVRUQjFTUE00U1ZFWEc3OUZUMEYiLCJ0ZW5hbnRfaWQiOiI0ZTY2NmFjNDBmODBlNzc0YWM4OTFkMzc0MTQ1ODEyMzRiMjM2MjI0MTZkMDIxZWJlYjg5ZjVkNjAzZTU5YzBmIiwiaW50ZXJuYWxfc2VjcmV0IjoiZGNkOWU5NmEtMDU2Zi00ZDc2LTk2OWUtYzE1YTNiODQ1ZWYzIn0.RwjiBZm0ryPttyQxN5eaxpUMKYoj_Tad1FgydxNoGRM"
+  },
+  
 }
