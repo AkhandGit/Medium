@@ -25,6 +25,7 @@ app.post('/api/v1/signup', async (c) => {
 			
 		},
 
+		//@ts-ignore
 	return c.text('signup route')
 })
 
@@ -49,3 +50,5 @@ app.get('/api/v1/blog/:id', (c) => {
 })
 
 export default app;
+
+})
