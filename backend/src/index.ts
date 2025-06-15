@@ -74,4 +74,3 @@ app.get('/api/v1/blog/:id', (c) => {
 
 export default app;
 
-})
