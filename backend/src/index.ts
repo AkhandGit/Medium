@@ -81,7 +81,7 @@ app.get('/api/v1/blog/:id', (c) => {
   const id = c.req.param('id')
   //@ts-ignore
 	console.log(id);
-	return c.text('signin route')
+	return c.text('signin')
 })
 
 export default app;
