@@ -10,6 +10,8 @@ const app = new Hono<{
 	}
 }>();
 
+app.get('/', (c) => c.text('API is running 🚀'));
+
 app.use('/api/v1/blog/*', async (c, next) => {
 	const header = c.req.header('Authorization') || "";
 	const response =await verify(header, c.env.JWT_SECRET);
