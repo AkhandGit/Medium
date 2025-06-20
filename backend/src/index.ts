@@ -41,10 +41,11 @@ app.post('/api/v1/signup', async (c) => {
 			{ 
 				id: user.id
 			 }, c.env.JWT_SECRET);
-		return c.json({ jwt });
+		return c.text(jwt);
 	} catch(e) {
+    console.log(e);
 		c.status(403);
-		return c.json({ error: "error while signing up" });
+		return c.text("error while signing up");
 	}
 })
 
