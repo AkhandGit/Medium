@@ -10,6 +10,9 @@ const app = new Hono<{
 	}
 }>();
 
+app.route('/api/v1/user', userRouter)
+app.route('/api/v1/book', bookRouter)
+
 app.use('/api/v1/blog/*', async (c, next) => {
 	const header = c.req.header('Authorization') || "";
 	const response =await verify(header, c.env.JWT_SECRET);
