@@ -40,16 +40,43 @@ blogRouter.post('/', async (c) => {
 			}
 		});
 
-	return c.json({
+		return c.json({
 			id: post.id,
 			
 		});
+	} catch (error) {
+		c.status(500);
+		return c.json({ error: "Internal Server Error" });
 	}
 })
 
-blogRouter.put('/', (c) => {
+blogRouter.put('/', async (c) => {
+	const prisma = new PrismaClient({
+		datasourceUrl: c.env?.DATABASE_URL	,
+	}).$extends(withAccelerate());
 
-	return c.text('Hello Hono!')
+	const body = await c.req.json();
+	try {
+		const post = await prisma.post.update({
+			where: {
+				id: body.id
+			},
+			data: {
+				title: body.title,
+				content: body.content,
+				
+			}
+		});
+
+		return c.json({
+			id: post.id,
+			
+		});
+	} catch (error) {
+		c.status(500);
+		return c.json({ error: "Internal Server Error" });
+	}
+
 })
 
 blogRouter.get('/', (c) => {
