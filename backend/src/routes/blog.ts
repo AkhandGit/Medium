@@ -40,7 +40,11 @@ blogRouter.post('/', async (c) => {
 			}
 		});
 
-	return c.text('Hello Hono!')
+	return c.json({
+			id: post.id,
+			
+		});
+	}
 })
 
 blogRouter.put('/', (c) => {
