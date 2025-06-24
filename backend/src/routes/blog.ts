@@ -12,7 +12,7 @@ export const blogRouter = new Hono<{
 
 blogRouter.use('/*', async (c, next) => {
 	const header = c.req.header('Authorization') || "";
-	const response =await verify(header || "", c.env.JWT_SECRET);
+	const response =await verify(header, c.env.JWT_SECRET);
 	if (response.id) {
 		next()
 	} else {
