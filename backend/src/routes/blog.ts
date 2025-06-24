@@ -7,6 +7,9 @@ export const blogRouter = new Hono<{
 	Bindings: {
 		DATABASE_URL: string,
 		JWT_SECRET: string,
+	},
+	Variables: {
+		userId: string
 	}
 }>();
 
@@ -14,6 +17,7 @@ blogRouter.use('/*', async (c, next) => {
 	const header = c.req.header('Authorization') || "";
 	const response =await verify(header, c.env.JWT_SECRET);
 	if (response.id) {
+		c.set("userId", String(response.id));
 		next()
 	} else {
 		c.status(403);
@@ -31,12 +35,14 @@ blogRouter.post('/', async (c) => {
 	}).$extends(withAccelerate());
 
 	const body = await c.req.json();
+	const authorId = c.get("userId");
+	
 	try {
 		const post = await prisma.post.create({
 			data: {
 				title: body.title,
 				content: body.content,
-				authorId: '1'
+				authorId: authorId,
 			}
 		});
 
