@@ -9,6 +9,10 @@ const app = new Hono<{
 	}
 }>();
 
+app.get('/', (c) => {
+  return c.text('API is running')
+})
+
 app.route('/api/v1/user', userRouter)
 app.route('/api/v1/blog', blogRouter)
 
