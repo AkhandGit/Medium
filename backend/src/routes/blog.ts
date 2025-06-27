@@ -90,11 +90,11 @@ blogRouter.get('/',async (c) => {
 		datasourceUrl: c.env?.DATABASE_URL	,
 	}).$extends(withAccelerate());
 
-	const body = await c.req.json();
+	const id = c.req.param("id");
 	try {
 		const post = await prisma.post.findFirst({
 			where: {
-				id: body.id
+				id: id
 			}
 		});
 
