@@ -85,7 +85,7 @@ blogRouter.put('/', async (c) => {
 
 })
 
-blogRouter.get('/',async (c) => {
+blogRouter.get('/:id',async (c) => {
   const prisma = new PrismaClient({
 		datasourceUrl: c.env?.DATABASE_URL	,
 	}).$extends(withAccelerate());
@@ -104,7 +104,7 @@ blogRouter.get('/',async (c) => {
 		}); 
 	} catch (error) {
 		c.status(500);
-		return c.json({ error: "Internal Server " });
+		return c.json({ error: "Internal Server Error " });
 	}
 })
 
