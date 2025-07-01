@@ -18,7 +18,7 @@ blogRouter.use('/*', async (c, next) => {
 	const response =await verify(header, c.env.JWT_SECRET);
 	if (response.id) {
 		c.set("userId", String(response.id));
-		next()
+		await next()
 	} else {
 		c.status(403);
 		return c.json({ error: "Unauthorized" });
