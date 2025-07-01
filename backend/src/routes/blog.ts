@@ -15,16 +15,22 @@ export const blogRouter = new Hono<{
 
 blogRouter.use('/*', async (c, next) => {
 	const header = c.req.header('Authorization') || "";
-	const response =await verify(header, c.env.JWT_SECRET);
-	if (response.id) {
-		c.set("userId", String(response.id));
-		await next()
-	} else {
-		c.status(403);
-		return c.json({ error: "Unauthorized" });
+	const token = header.replace("Bearer ", "").trim();
+
+	try {
+		const response = await verify(token, c.env.JWT_SECRET);
+		if (response && response.id) {
+			c.set("userId", String(response.id));
+			await next();
+		} else {
+			c.status(403);
+			return c.json({ error: "Unauthorized" });
+		}
+	} catch (e) {
+		c.status(401);
+		return c.json({ error: "Invalid or expired token" });
 	}
-  await next()
-})
+});
 
 
 
