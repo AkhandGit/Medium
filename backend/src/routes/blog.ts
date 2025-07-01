@@ -91,6 +91,19 @@ blogRouter.put('/', async (c) => {
 
 })
 
+
+blogRouter.put('/bulk',async (c) => {
+	const prisma = new PrismaClient({
+		datasourceUrl: c.env?.DATABASE_URL	,
+	}).$extends(withAccelerate());
+
+	const post = await prisma.post.findFirst();
+
+	return c.json({
+		post
+	});
+})
+
 blogRouter.get('/:id',async (c) => {
   const prisma = new PrismaClient({
 		datasourceUrl: c.env?.DATABASE_URL	,
@@ -112,16 +125,4 @@ blogRouter.get('/:id',async (c) => {
 		c.status(500);
 		return c.json({ error: "Internal Server Error " });
 	}
-})
-
-blogRouter.put('/bulk',async (c) => {
-	const prisma = new PrismaClient({
-		datasourceUrl: c.env?.DATABASE_URL	,
-	}).$extends(withAccelerate());
-
-	const post = await prisma.post.findFirst();
-
-	return c.json({
-		post
-	});
 })
