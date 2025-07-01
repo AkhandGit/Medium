@@ -97,7 +97,7 @@ blogRouter.put('/bulk',async (c) => {
 		datasourceUrl: c.env?.DATABASE_URL	,
 	}).$extends(withAccelerate());
 
-	const post = await prisma.post.findFirst();
+	const post = await prisma.post.findMany();
 
 	return c.json({
 		post
