@@ -123,6 +123,6 @@ blogRouter.get('/:id',async (c) => {
 		}); 
 	} catch (error) {
 		c.status(500);
-		return c.json({ error: "Internal Server Error " });
+		return c.json({ error: "Internal  Error " });
 	}
 })
