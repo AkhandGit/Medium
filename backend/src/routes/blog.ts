@@ -27,7 +27,7 @@ blogRouter.use('/*', async (c, next) => {
 			return c.json({ error: "Unauthorized" });
 		}
 	} catch (e) {
-		c.status(401);
+		c.status(403);
 		return c.json({ error: "Invalid or expired token" });
 	}
 });
