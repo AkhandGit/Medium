@@ -113,7 +113,7 @@ blogRouter.get('/:id',async (c) => {
 	try {
 		const post = await prisma.post.findFirst({
 			where: {
-				id: id
+				id: Number(id)
 			}
 		});
 
