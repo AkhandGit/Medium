@@ -5,3 +5,15 @@ export const signupInput= z.object({
     password: z.string().min(6),
     name: z.string().optional(),
 });
+
+export type SignupInput = z.infer<typeof signupInput>;
+
+
+export const signinInput= z.object({
+    email: z.string().email(),
+    password: z.string().min(6),
+    rememberMe: z.boolean().optional(),
+    captcha: z.string().optional(),
+});
+
+export type SigninInput = z.infer<typeof signinInput>;
