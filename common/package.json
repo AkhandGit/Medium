@@ -1,5 +1,5 @@
 {
-  "name": "common",
+  "name": "@100xdevs/medium-common",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
