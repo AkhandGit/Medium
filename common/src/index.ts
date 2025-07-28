@@ -6,7 +6,6 @@ export const signupInput= z.object({
     name: z.string().optional(),
 });
 
-export type SignupInput = z.infer<typeof signupInput>;
 
 
 export const signinInput= z.object({
@@ -16,4 +15,24 @@ export const signinInput= z.object({
     captcha: z.string().optional(),
 });
 
+export const createBlogInput = z.object({
+    title: z.string().min(1),
+    content: z.string().min(1),
+    
+});
+
+
+
+
+export const updateBlogInput = z.object({
+    title: z.string().min(1),
+    content: z.string().min(1),
+    id: z.number()
+    
+});
+
+
+export type SignupInput = z.infer<typeof signupInput>;
 export type SigninInput = z.infer<typeof signinInput>;
+export type CreateBlogInput = z.infer<typeof createBlogInput>;
+export type UpdateBlogInput = z.infer<typeof updateBlogInput>;
