@@ -1,17 +1,22 @@
-import { Quote } from "../components/Quote"
+import { Quotes } from "../components/Quotes";
+import { Auth } from "../components/Auth";
 
 export const Signup = () => {
-  return (
-    <div>
-      <div className="grid grid-cols-2">
-        <div>
-          <h1 className="text-3xl font-bold">Signup Page</h1>
-          <p className="mt-2">Please fill out the form to create an account.</p>
+    return (
+        <div className="flex min-h-screen flex-row">
+            {/* Left side - Signup form */}
+            <div className="flex flex-1 flex-col justify-center items-center w-full">
+                <Auth type="signup" />
+            </div>
+
+            {/* Right side - Testimonial (hidden on mobile) */}
+            <div className="flex-1 bg-[#f5f6f7] justify-center items-center hidden lg:flex">
+                <Quotes
+                    quote="The customer service I received was exceptional. The support team went above and beyond to address my concerns."
+                    author="Jules Winnfield"
+                    title="CEO, Acme Inc"
+                />
+            </div>
         </div>
-        <Quote/>
-      </div>
-      
-      <Quote/>
-    </div>
-  )
+    )
 }
