@@ -31,7 +31,7 @@ export const Blog = () => {
             <div>
                 <AppBar />
                 <div className="max-w-3xl mx-auto py-8">
-                    <h1 className="text-2xl font-bold mb-4">Blog not found</h1>
+                    <h1 className="text-2xl font-bold mb-4">Blog not found </h1>
                 </div>
             </div>
         );
