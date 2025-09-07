@@ -4,7 +4,7 @@ import { Auth } from "../components/Auth";
 export const Signup = () => {
     return (
         <div className="flex min-h-screen flex-row">
-            {/* Left side - Signup form */}
+            
             <div className="flex flex-1 flex-col justify-center items-center w-full">
                 <Auth type="signup" />
             </div>
