@@ -9,7 +9,7 @@ export const Signup = () => {
                 <Auth type="signup" />
             </div>
 
-            {/* Right side - Testimonial (hidden on mobile) */}
+            
             <div className="flex-1 bg-[#f5f6f7] justify-center items-center hidden lg:flex">
                 <Quotes
                     quote="The customer service I received was exceptional. The support team went above and beyond to address my concerns."
