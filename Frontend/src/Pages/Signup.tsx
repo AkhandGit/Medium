@@ -1,22 +1,15 @@
-import { Quotes } from "../components/Quotes";
-import { Auth } from "../components/Auth";
+import { Auth } from "../components/Auth"
+import { Quote } from "../components/Quote"
 
-export const Signup = () => {
-    return (
-        <div className="flex min-h-screen flex-row">
-            
-            <div className="flex flex-1 flex-col justify-center items-center w-full">
-                <Auth type="signup" />
-            </div>
-
-            
-            <div className="flex-1 bg-[#f5f6f7] justify-center items-center hidden lg:flex">
-                <Quotes
-                    quote="The customer service I received was exceptional. The support team went above and beyond to address my concerns."
-                    author="Jules Winnfield"
-                    title="CEO, Acme Inc"
-                />
-            </div>
-        </div>
-    )
+export const Signup =() => {
+    return <div className="grid grid-cols-1 lg:grid-cols-2">
+                <div>
+                    <Auth type="signup" />
+                    
+                </div>
+                <div className="hidden lg:block">
+                    <Quote/>
+                
+                </div>
+            </div> 
 }
