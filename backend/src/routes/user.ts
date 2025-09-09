@@ -13,12 +13,17 @@ export const userRouter = new Hono<{
 
 // ---------------- SIGNUP ----------------
 userRouter.post('/signup', async (c) => {
+	//@ts-ignore
+  console.log("Signup route hit"); // <- Add this
   const prisma = new PrismaClient({
     datasourceUrl: c.env.DATABASE_URL,
   }).$extends(withAccelerate());
 
   const body = await c.req.json();
-  const { success } = signupInput.safeParse(body);
+  //@ts-ignore
+  console.log("Request body:", body);
+  const { success } = signupInput.safeParse(body);//@ts-ignore
+  console.log("Zod validation success:", success);
   if (!success) {
     c.status(411);
     return c.json({ error: "Invalid input" });
@@ -32,11 +37,14 @@ userRouter.post('/signup', async (c) => {
         name: body.name
       }
     });
+	//@ts-ignore
+	console.log("User created:", user);
 
     const jwt = await sign({ id: user.id }, c.env.JWT_SECRET);
     return c.json({ jwt });
   } catch (e) {
-    
+	//@ts-ignore
+    console.error("Error in signup:", e);
     c.status(500);
     return c.json({ error: "Error while signing up" });
   }
