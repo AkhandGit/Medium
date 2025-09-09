@@ -36,17 +36,16 @@ userRouter.post('/signup', async (c) => {
 				id: user.id
 			 }, c.env.JWT_SECRET);
 		return c.text(jwt);
-	} catch(e) {
-        // @ts-ignore
-    console.log(e);
-		c.status(403);
-		return c.text("error while signing up");
-	}
+	} catch (e) {
+		
+		c.status(500); // internal server error
+		return c.json({ error: "Error while signing up" });
+		}
 })
 
 
 
-userRouter.post('/api/v1/signin', async (c) => {
+userRouter.post('/signin', async (c) => {
 	const prisma = new PrismaClient({
 		datasourceUrl: c.env.DATABASE_URL	,
 	}).$extends(withAccelerate());
