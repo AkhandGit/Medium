@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { PacmanLoader } from "react-spinners";
 
-
+/*
 export const Blogs = () => {
     const { loading, blogs } = useBlogs();
     const navigate = useNavigate();
@@ -45,4 +45,36 @@ export const Blogs = () => {
             </div>
         </div>
     );
+}
+
+*/
+
+export const Blogs = () => {
+    return <div className="flex justify-center">
+
+                <div className=" max-w-xl">
+                        <BlogCard
+                            authorName={"John Doe"}
+                            title={"Sample Blog Title"}
+                            content={"This is a brief description of the blog post. It should be concise and engaging to attract readers."}
+                            publishedDate={"Aug 27, 2025"}
+                        />
+                        <BlogCard
+                            authorName={"John Doe"}
+                            title={"Sample Blog Title"}
+                            content={"This is a brief description of the blog post. It should be concise and engaging to attract readers."}
+                            publishedDate={"Aug 27, 2025"}
+                        />
+                        <BlogCard
+                            authorName={"John Doe"}
+                            title={"Sample Blog Title"}
+                            content={"This is a brief description of the blog post. It should be concise and engaging to attract readers."}
+                            publishedDate={"Aug 27, 2025"}
+                        />
+                        
+                </div>
+                
+
+            </div>
+    
 }
