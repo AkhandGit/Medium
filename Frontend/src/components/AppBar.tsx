@@ -1,3 +1,5 @@
+/*
+
 import { TfiWrite } from "react-icons/tfi";
 import { useNavigate } from "react-router-dom";
 
@@ -6,11 +8,11 @@ export const AppBar = () => {
     return (
         <div className="border-b bg-white shadow select-none">
             <div className="flex items-center justify-between max-w-7xl mx-auto py-3 px-6">
-                {/* Logo */}
+                
                 <div className="flex items-center">
                     <span onClick={() => navigate("/")} className="text-3xl font-serif font-bold tracking-tight cursor-pointer select-none">Medium</span>
                 </div>
-                {/* Search */}
+                
                 <div className="flex-1 flex justify-center mx-8">
                     <div className="flex items-center bg-gray-100 rounded-full px-4 py-2 w-full max-w-md">
                         <svg className="w-5 h-5 text-gray-400 mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -24,7 +26,7 @@ export const AppBar = () => {
                         />
                     </div>
                 </div>
-                {/* Actions */}
+                
                 <div className="flex items-center gap-6 cursor-pointer">
                     <button
                         onClick={() => navigate("/post")}
@@ -48,4 +50,20 @@ export const AppBar = () => {
             </div>
         </div>
     );
+}
+
+*/
+
+import { Avatar } from "./BlogCard"
+
+export const AppBar = () => {
+    return <div className="border-b flex justify-between px-10 py-4">
+        <div className="flex flex-col justify-center">
+            Medium
+        </div>
+        <div>
+            <Avatar size={"big"} name="John Doe"/>
+        </div>
+
+    </div>
 }

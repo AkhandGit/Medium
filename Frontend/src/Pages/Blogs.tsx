@@ -1,4 +1,4 @@
-import { BlogCard } from "../components/BlogCard";
+import { Avatar, BlogCard } from "../components/BlogCard";
 import { AppBar } from "../components/AppBar";
 import { useBlogs } from "../hooks/index";
 import { useEffect } from "react";
@@ -50,28 +50,28 @@ export const Blogs = () => {
 */
 
 export const Blogs = () => {
-    return <div className="flex justify-center">
+    const {loading, blogs} = useBlogs();
+    if(loading){
+        return <div>
+            loading...
 
-                <div className=" max-w-xl">
-                        <BlogCard
-                            authorName={"John Doe"}
-                            title={"Sample Blog Title"}
-                            content={"This is a brief description of the blog post. It should be concise and engaging to attract readers."}
-                            publishedDate={"Aug 27, 2025"}
-                        />
-                        <BlogCard
-                            authorName={"John Doe"}
-                            title={"Sample Blog Title"}
-                            content={"This is a brief description of the blog post. It should be concise and engaging to attract readers."}
-                            publishedDate={"Aug 27, 2025"}
-                        />
-                        <BlogCard
-                            authorName={"John Doe"}
-                            title={"Sample Blog Title"}
-                            content={"This is a brief description of the blog post. It should be concise and engaging to attract readers."}
-                            publishedDate={"Aug 27, 2025"}
-                        />
-                        
+        </div>
+    }
+    return <div >
+            <AppBar />
+                <div className="flex justify-center">            
+                    <div>
+                        {blogs.map(blog => <BlogCard
+                                id={blog.id}
+                                authorName={blog.author.name}
+                                title={blog.title}
+                                content={blog.content}
+                                publishedDate={"Aug 27, 2025"}
+                            />)}
+                            
+                            
+                            
+                    </div>
                 </div>
                 
 

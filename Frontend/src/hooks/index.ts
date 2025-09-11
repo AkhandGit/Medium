@@ -16,10 +16,13 @@ export interface Blog {
     readTime?: string;
 }
 
+
+
 //single blog hook
 export const useBlog = ({ id }: { id: string }) => {
     const [loading, setLoading] = useState(true);
     const [blog, setBlog] = useState<Blog>();
+    //const [blog, setBlog] = useState([]);
 
     useEffect(() => {
         axios.get(`${BACKEND_URL}/api/v1/blog/post/${id}`, {
@@ -28,14 +31,14 @@ export const useBlog = ({ id }: { id: string }) => {
             }
         })
             .then(response => {
-                setBlog(response.data);
+                setBlog(response.data.post);
                 setLoading(false);
             })
             .catch(error => {
                 console.error("Error fetching blogs:", error);
                 setLoading(false);
             });
-    }, [id]);
+    }, []);
 
     return {
         loading,
@@ -55,7 +58,7 @@ export const useBlogs = () => {
             }
         })
             .then(response => {
-                setBlogs(response.data);
+                setBlogs(response.data.post);
                 setLoading(false);
             })
             .catch(error => {
