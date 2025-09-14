@@ -4,6 +4,7 @@ import { useBlogs } from "../hooks/index";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { PacmanLoader } from "react-spinners";
+import { BlogSkeleton } from "../components/BlogSkeleton";
 
 /*
 export const Blogs = () => {
@@ -51,10 +52,18 @@ export const Blogs = () => {
 
 export const Blogs = () => {
     const {loading, blogs} = useBlogs();
+    <AppBar />
     if(loading){
-        return <div>
-            loading...
-
+        return <div className="flex justify-center items-center h-screen">
+            
+            {/*skeletons*/}
+            <div>
+                <BlogSkeleton />
+                <BlogSkeleton />
+                <BlogSkeleton />
+                <BlogSkeleton />
+            </div>
+            
         </div>
     }
     return <div >
