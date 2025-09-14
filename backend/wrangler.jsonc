@@ -6,7 +6,7 @@
   "compatibility_flags": ["nodejs_compat"],
   "tsconfig": "./tsconfig.json",
   "vars": {
-    "DATABASE_URL": "prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiMDFKWFE1WVRUQjFTUE00U1ZFWEc3OUZUMEYiLCJ0ZW5hbnRfaWQiOiI0ZTY2NmFjNDBmODBlNzc0YWM4OTFkMzc0MTQ1ODEyMzRiMjM2MjI0MTZkMDIxZWJlYjg5ZjVkNjAzZTU5YzBmIiwiaW50ZXJuYWxfc2VjcmV0IjoiZGNkOWU5NmEtMDU2Zi00ZDc2LTk2OWUtYzE1YTNiODQ1ZWYzIn0.RwjiBZm0ryPttyQxN5eaxpUMKYoj_Tad1FgydxNoGRM",
-    "JWT_SECRET": "DedSecret"
+    "DATABASE_URL": "",
+    "JWT_SECRET": ""
   }
 }
