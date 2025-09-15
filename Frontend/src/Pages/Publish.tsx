@@ -19,7 +19,7 @@ export const Publish = () => {
     })
     .then(() => {
       
-      window.location.href = "/blogs";   // ✅ go back to blogs list
+      window.location.href = "/blogs";   
     })
     .catch(() => {
       
